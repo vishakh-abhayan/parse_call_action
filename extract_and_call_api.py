@@ -1,19 +1,17 @@
 import os
 import re
 import requests
-import markdown
-from markdown.extensions.tables import TableExtension
 
 # Configuration
 LIST_MD_PATH = 'list.md'  # Path to your list.md file
 API_BASE_URL = 'https://app.youlocate.me/api/v1/address/'  # Base API URL
 OUTPUT_DIR = 'api_responses'  # Directory to store generated Markdown files
 
-# Ensure the output directory exists
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
 # Optional: Get API key from environment variables if required
 API_KEY = os.getenv('API_KEY')  # Set this if your API requires authentication
+
+# Ensure the output directory exists
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def extract_locate_ids(markdown_file):
     """
